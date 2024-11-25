@@ -6,7 +6,7 @@ import seaborn as sns
 import pandas as pd
 
 
-def slice_wasserstein_gaussian(\mu_1,\mu_2,\sigma,n_samples=100):
+def slice_wasserstein_gaussian(mu_1,mu_2,sigma,n_samples=100):
 """
 MC estimation of the slice Wasserstein distance between two Gaussian distributions with means mu_1 and mu_2 and standard deviation sigma
 """
