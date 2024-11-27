@@ -63,7 +63,7 @@ def slice_wasserstein_gaussian(mu_1, mu_2, sigma, n_samples=100, n_slices=100, n
 
     SW_mean = np.mean(SWs)
     SW_std = np.std(SWs)
-    margin_of_error = norm.ppf(confidence / 2) * SW_std / np.sqrt(n_samples)
+    margin_of_error = norm.ppf(confidence / 2) * SW_std / np.sqrt(n_replications)
     CI = (SW_mean - margin_of_error, SW_mean + margin_of_error)
 
     return SW_mean, SW_std, margin_of_error, CI
@@ -125,7 +125,7 @@ def slice_wasserstein_generic(X, Y, n_samples=100, n_slices=100, n_us=100, n_rep
 
     SW_mean = np.mean(SWs)
     SW_std = np.std(SWs)
-    margin_of_error = norm.ppf(confidence / 2) * SW_std / np.sqrt(n_samples)
+    margin_of_error = norm.ppf(confidence / 2) * SW_std / np.sqrt(n_replications)
     CI = (SW_mean - margin_of_error, SW_mean + margin_of_error)
 
     return SW_mean, SW_std, margin_of_error, CI
