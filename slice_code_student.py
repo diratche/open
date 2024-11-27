@@ -4,10 +4,10 @@ import numpy as np
 from scipy.stats import norm
 
 def slice_wasserstein_gaussian(mu_1,mu_2,sigma,n_samples=100):
-"""
-MC estimation of the slice Wasserstein distance between two Gaussian distributions with means mu_1 and mu_2 and standard deviation sigma
-"""
-
+    """
+    MC estimation of the slice Wasserstein distance between two Gaussian distributions with means mu_1 and mu_2 and standard deviation sigma
+    """
+    
     def sphere(d, n_slices):
         S = np.random.randn(n_slices, d)
         S /= np.linalg.norm(S, axis=1, keepdims=True)
