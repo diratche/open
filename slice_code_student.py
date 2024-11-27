@@ -3,7 +3,7 @@
 import numpy as np
 from scipy.stats import norm
 
-def slice_wasserstein_gaussian(mu_1,mu_2,sigma,n_samples=100):
+def slice_wasserstein_gaussian(mu_1, mu_2, sigma, n_samples=100, n_slices=100, n_replications=100, confidence=0.95):
     """
     MC estimation of the slice Wasserstein distance between two Gaussian distributions with means mu_1 and mu_2 and standard deviation sigma
     """
@@ -68,7 +68,7 @@ def slice_wasserstein_gaussian(mu_1,mu_2,sigma,n_samples=100):
 
     return SW_mean, SW_std, margin_of_error, CI
 
-def slice_wasserstein_generic(X,Y,n_samples=100,n_slices=100):
+def slice_wasserstein_generic(X, Y, n_samples=100, n_slices=100, n_us=100, n_replications=100, confidence=0.95):
     """
     Compute the sliced Wasserstein distance between the empirical distribution of two datasets X and Y
     X and Y are numpy arrays of dimension n_X x d and n_Y x d where n is the number of samples and d is the dimension of the samples
@@ -85,7 +85,7 @@ def slice_wasserstein_generic(X,Y,n_samples=100,n_slices=100):
         projection = sample @ v
         return projection
 
-    def w_operator(proj_1, proj_2, n_us=100, epsilon=1e-8):
+    def w_operator(proj_1, proj_2, n_us=n_us, epsilon=1e-8):
         us = rng.uniform(low=0, high=1, size=n_us)
         W = 0
         for u in us:
