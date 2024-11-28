@@ -19,4 +19,5 @@ while True:
   if data.status_code == 200:
     producer.send(topic, json.dumps(data.json()))
     #print(f'Ingestion successful at {time.strftime("%H:%M:%S", time.localtime())}')
+    print(data.json())
   time.sleep(periodicity)
