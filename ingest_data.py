@@ -18,7 +18,7 @@ while True:
   response = requests.get(address)
   if response.status_code == 200:
     data = response.json()
-    producer.send(topic, data)
+    producer.send(topic, value=data)
     print(data)
     print(json.dumps(data).encode('utf-8'))
     #print(f'Ingestion successful at {time.strftime("%H:%M:%S", time.localtime())}')
