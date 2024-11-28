@@ -15,9 +15,9 @@ except:
 address = server + '?apiKey=' + key
 producer = KafkaProducer(bootstrap_servers='localhost:9092', value_serializer=lambda x: json.dumps(x).encode('utf-8'))
 while True:
-  data = requests.get(address)
-  if data.status_code == 200:
-    data = data.json()
+  response = requests.get(address)
+  if response.status_code == 200:
+    data = response.json()
     producer.send(topic, data)
     print(data)
     print(json.dumps(data).encode('utf-8'))
