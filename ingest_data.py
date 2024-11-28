@@ -2,6 +2,7 @@ from kafka import KafkaProducer
 import requests
 import json
 import time
+import sys
 
 server = sys.argv[1]
 key = sys.argv[2]
