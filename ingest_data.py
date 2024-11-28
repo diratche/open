@@ -17,7 +17,8 @@ producer = KafkaProducer(bootstrap_servers='localhost:9092', value_serializer=la
 while True:
   data = requests.get(address)
   if data.status_code == 200:
-    #producer.send(topic, data.json())
+    data = data.json()
+    producer.send(topic, data.json())
     producer.send(topic, 'pouet')
     #print(f'Ingestion successful at {time.strftime("%H:%M:%S", time.localtime())}')
   time.sleep(periodicity)
