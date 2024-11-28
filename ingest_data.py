@@ -14,12 +14,9 @@ except:
 
 address = server + '?apiKey=' + key
 producer = KafkaProducer(bootstrap_servers="localhost:9092")
-i = 0
 while True:
   data = requests.get(address)
   if data.status_code == 200:
     producer.send(topic, data.json())
     #print(f'Ingestion successful at {time.strftime("%H:%M:%S", time.localtime())}')
-    print(i)
-  i += 1
   time.sleep(periodicity)
