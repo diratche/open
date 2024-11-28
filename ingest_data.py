@@ -18,7 +18,7 @@ while True:
   data = requests.get(address)
   if data.status_code == 200:
     data = data.json()
-    producer.send(topic, data.json())
+    producer.send(topic, data)
     producer.send(topic, 'pouet')
     #print(f'Ingestion successful at {time.strftime("%H:%M:%S", time.localtime())}')
   time.sleep(periodicity)
