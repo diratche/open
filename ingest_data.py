@@ -3,7 +3,7 @@ import requests
 import json
 import time
 
-def ingest_data(server, key, topic, periodicity=10):
+def ingest(server, key, topic, periodicity=10):
   address = server + '?apiKey=' + key
   producer = KafkaProducer(bootstrap_servers="localhost:9092", value_serializer=str.encode)
   while True:
