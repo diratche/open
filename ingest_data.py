@@ -13,11 +13,13 @@ except:
   periodicity = 10
 
 address = server + '?apiKey=' + key
-producer = KafkaProducer(bootstrap_servers='localhost:9092', value_serializer=lambda x: json.dumps(x).encode('utf-8'))
+producer = KafkaProducer(bootstrap_servers='localhost:9092',)# value_serializer=lambda x: json.dumps(x).encode('utf-8'))
 while True:
-  response = requests.get(address)
-  if response.status_code == 200:
-    data = response.json()
+  data = requests.get(address)
+  if data.status_code == 200:
+    data = data.json()
+    data = json.dumps(data)
+    data = data.encode('utf-8')
     producer.send(topic, value=data)
     print(data)
     #print(json.dumps(data).encode('utf-8'))
