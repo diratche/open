@@ -20,6 +20,6 @@ while True:
     data = response.json()
     producer.send(topic, value=data)
     print(data)
-    print(json.dumps(data).encode('utf-8'))
+    #print(json.dumps(data).encode('utf-8'))
     #print(f'Ingestion successful at {time.strftime("%H:%M:%S", time.localtime())}')
   time.sleep(periodicity)
