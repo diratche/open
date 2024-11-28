@@ -12,6 +12,11 @@ try:
 except:
   periodicity = 10
 
+print(server)
+print(key)
+print(topic)
+print(periodicity)
+
 address = server + '?apiKey=' + key
 producer = KafkaProducer(bootstrap_servers="localhost:9092", value_serializer=str.encode)
 while True:
