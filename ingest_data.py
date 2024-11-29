@@ -22,6 +22,6 @@ while True:
     #producer.send(topic, value=data)
     producer.send(topic, value=nested)
     print(data)
-    print(json.dumps(data).encode('utf-8'))
+    print(len(json.dumps(data).encode('utf-8')))
     #print(f'Ingestion successful at {time.strftime("%H:%M:%S", time.localtime())}')
   time.sleep(periodicity)
