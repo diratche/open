@@ -1,6 +1,7 @@
 from kafka import KafkaConsumer, KafkaProducer
 import json
 import sys
+import time
 
 topic_in = sys.argv[1]
 
@@ -14,4 +15,4 @@ for message in consumer:
     city = station['contractName']
     address = station['address']
     if available_bikes == 0:
-        print(city, address)
+        print(time.strftime("%H:%M:%S", time.localtime()), city, address)
