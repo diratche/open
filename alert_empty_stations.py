@@ -1,4 +1,4 @@
-from kafka import KafkaConsumer, KafkaProducer
+from kafka import KafkaConsumer
 import json
 import sys
 import time
@@ -6,7 +6,6 @@ import time
 topic_in = sys.argv[1]
 
 consumer = KafkaConsumer(topic_in, bootstrap_servers='localhost:9092', group_id='alert_empty_stations', value_deserializer=lambda x: json.loads(x.decode('utf-8')))
-producer = KafkaProducer(bootstrap_servers='localhost:9092', value_serializer=lambda x: json.dumps(x).encode('utf-8'))
 
 empty_stations_dic = {}
 
