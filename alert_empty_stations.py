@@ -14,6 +14,7 @@ for message in consumer:
     station = message.value
     available_bikes = station['totalStands']['availabilities']['bikes']
     city = station['contractName']
+    name = station['name']
     address = station['address']
     if available_bikes == 0:
-        print(time.strftime("%H:%M:%S", time.localtime()), city, address)
+        print(time.strftime("%H:%M:%S", time.localtime()), city, name, address)
