@@ -18,8 +18,6 @@ while True:
   data = requests.get(address)
   if data.status_code == 200:
     data = data.json()
-    #data = json.dumps(data)
-    #data = data.encode('utf-8')
     #producer.send(topic, value=data)
     producer.send(topic, value='pouet')
     print(data)
