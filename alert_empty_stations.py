@@ -11,6 +11,7 @@ producer = KafkaProducer(bootstrap_servers='localhost:9092', value_serializer=la
 empty_stations_dic = {}
 
 for message in consumer:
+    station = message.value
     available_bikes = station['totalStands']['availabilities']['bikes']
     city = station['contractName']
     address = station['address']
