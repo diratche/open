@@ -83,7 +83,7 @@ def display_langevin(samples,
 
     def display_one_method(method, method_samples, target_distribution):   
         # Plot the samples and the target distribution contour
-        x, y = np.meshgrid(np.linspace(-3, 6, 100), np.linspace(-6, 3, 100))
+        x, y = np.meshgrid(np.linspace(-3, 6, 100), np.linspace(-3, 6, 100))
         z = np.exp(np.vectorize(lambda x, y: log_potential(np.array([x, y])))(x, y))
         plt.figure(figsize=(8, 6))
         plt.contourf(x, y, z, levels=30, cmap="viridis", alpha=0.7)
