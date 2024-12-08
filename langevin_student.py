@@ -68,7 +68,10 @@ def generate_samples(target_distribution={'mean': np.array([2.0, 2.0]), 'cov': n
         
     return samples
 
-def display_langevin(samples, target_distribution={'mean': np.array([2.0, 2.0]), 'cov': np.array([[1.0, 0.8], [0.8, 1.0]])}):
+def display_langevin(samples,
+                     target_distribution={'mean': np.array([2.0, 2.0]), 'cov': np.array([[1.0, 0.8], [0.8, 1.0]])},
+                     start_point=np.array([0.0, 0.0]),
+                    ):
 
     def log_potential(x, target_distribution=target_distribution):
         """Log potential function for the target distribution."""
