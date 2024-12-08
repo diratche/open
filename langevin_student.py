@@ -93,6 +93,6 @@ def display_langevin(samples, target_distribution={'mean': np.array([2.0, 2.0]),
         plt.grid()
         plt.show()
 
-    methods = list(samples.keys)
+    methods = list(samples.keys())
     for method in methods:
         display_one_method(method, samples[method], target_distribution)
