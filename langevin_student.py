@@ -21,7 +21,7 @@ def generate_samples(target_distribution={'mean': np.array([2.0, 2.0]), 'cov': n
     """
     
     # Define the target distribution as a 2D Gaussian
-    def log_potential(x):
+    def log_potential(x, target_distribution=target_distribution):
         """Log potential function for the target distribution."""
         mean = target_distribution['mean']
         cov_inv = np.linalg.inv(target_distribution['cov'])  # Inverse of covariance matrix
@@ -29,7 +29,7 @@ def generate_samples(target_distribution={'mean': np.array([2.0, 2.0]), 'cov': n
         g = -0.5 * diff.T @ cov_inv @ diff
         return g + np.cos(x[0]) + np.sin(x[1])
     
-    def grad_log_potential(x):
+    def grad_log_potential(x, target_distribution=target_distribution):
         """Gradient of the log potential function."""
         mean = target_distribution['mean']
         cov_inv = np.linalg.inv(target_distribution['cov'])  # Inverse of covariance matrix
@@ -70,7 +70,7 @@ def generate_samples(target_distribution={'mean': np.array([2.0, 2.0]), 'cov': n
 
 def display_langevin(samples, target_distribution={'mean': np.array([2.0, 2.0]), 'cov': np.array([[1.0, 0.8], [0.8, 1.0]])}):
 
-    def log_potential(x):
+    def log_potential(x, target_distribution=target_distribution):
         """Log potential function for the target distribution."""
         mean = target_distribution['mean']
         cov_inv = np.linalg.inv(target_distribution['cov'])  # Inverse of covariance matrix
